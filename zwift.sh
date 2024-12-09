@@ -130,7 +130,7 @@ fi
 # Check for updated zwift.sh
 if [[ ! $DONT_CHECK ]]
 then
-    REMOTE_SUM=$(curl -s https://raw.githubusercontent.com/netbrain/zwift/master/zwift.sh | sha256sum | awk '{print $1}')
+    REMOTE_SUM=$(curl -s https://raw.githubusercontent.com/jl1990/zwift/master/zwift.sh | sha256sum | awk '{print $1}')
     THIS_SUM=$(sha256sum $0 | awk '{print $1}')
 
     # Compare the checksums
@@ -140,7 +140,7 @@ then
         # Ask with Timeout, default is do not update.
         msgbox question "You are not running the latest zwift.sh 😭, (Default no in 5 seconds)" 5
         if [ $? -eq 0 ]; then
-            pkexec env PATH=$PATH bash -c "$(curl -fsSL https://raw.githubusercontent.com/netbrain/zwift/master/bin/install.sh)"
+            pkexec env PATH=$PATH bash -c "$(curl -fsSL https://raw.githubusercontent.com/jl1990/zwift/master/bin/install.sh)"
             exec "$0" "${@}"
         fi
     fi
