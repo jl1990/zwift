@@ -258,6 +258,7 @@ fi
 #########################
 ##### RUN CONTAINER #####
 CONTAINER=$($CONTAINER_TOOL run ${GENERAL_FLAGS[@]} \
+        -e NVIDIA_DRIVER_CAPABILITIES=all \
         ${ZWIFT_FG_FLAG[@]} \
         $ZWIFT_CONFIG_FLAG \
         $ZWIFT_USER_CONFIG_FLAG \
